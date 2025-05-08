@@ -2,7 +2,7 @@
 #include "stock_broker.h"
 using namespace testing;
 
-class MockDriver : public TestStockBroker {
+class MockDriver : public StockBroker {
 public:
 	MockDriver() = default;
 	MOCK_METHOD(void, login, (std::string ID, std::string pass), (override));
