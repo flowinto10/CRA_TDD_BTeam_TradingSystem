@@ -1,4 +1,5 @@
 ﻿#include "gmock/gmock.h"
+#include "stock_broker.h"
 
 using namespace testing;
 
@@ -8,7 +9,7 @@ class MockDriver;
 
 // StockBroker Driver 생성
 TEST(StockTS, CreateStockDriver) {
-	StockBroker* app = nullptr;
+	StockBroker* app = new TestStockBroker{};
 
 	EXPECT_NE(nullptr, app);
 }
@@ -20,12 +21,14 @@ TEST(StockTS, CreateMockkDriver) {
 	EXPECT_NE(nullptr, app);
 }
 
+
 // StockBroker Driver 생성
 TEST(StockTS, CreateATS) {
 	ATS* app = nullptr;
 
 	EXPECT_NE(nullptr, app);
 }
+
 
 int main() {
 	::testing::InitGoogleMock();
