@@ -6,16 +6,16 @@ class ATS; // Auto Trading System
 class StockBroker;
 class MockDriver;
 
-// MockDriver 생성
-TEST(StockTS, TC0) {
+// StockBroker Driver 생성
+TEST(StockTS, CreateStockDriver) {
 	StockBroker* app = nullptr;
 
 	EXPECT_NE(nullptr, app);
 }
 
-// ATS 생성
-TEST(StockTS, TC1) {
-	ATS* app = nullptr;
+// StockBroker Driver 생성
+TEST(StockTS, CreateMockkDriver) {
+	MockDriver* app = nullptr;
 
 	EXPECT_NE(nullptr, app);
 }
