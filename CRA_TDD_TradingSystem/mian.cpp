@@ -1,6 +1,5 @@
 ﻿#include "gmock/gmock.h"
 #include "stock_broker.h"
-#include "mockdriver.cpp"
 
 using namespace testing;
 
@@ -10,20 +9,22 @@ class MockDriver;
 
 // StockBroker Driver 생성
 TEST(StockTS, CreateStockDriver) {
-	StockBroker* app = new TestStockBroker{};
-	
-	
+	// StockBroker* app = new TestStockBroker{};
 
+	TestStockBroker app;
+	EXPECT_CALL(app, login("myID", "myPass"))
+		.Times(1);
 
-	EXPECT_NE(nullptr, app);
+	app.login("myID", "myPass");
+
+//	EXPECT_NE(nullptr, app);
 }
 
 // StockBroker Driver 생성
 TEST(StockTS, CreateMockkDriver) {
-	MockDriver mock;
-	EXPECT_CALL(mock, login("haha", "haha"))
-		.Times(1);
-	mock.login("haha", "haha");
+	MockDriver* app = nullptr;
+
+	EXPECT_NE(nullptr, app);
 }
 
 
