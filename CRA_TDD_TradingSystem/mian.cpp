@@ -2,6 +2,24 @@
 
 using namespace testing;
 
+class ATS; // Auto Trading System
+class StockBroker;
+class MockDriver;
+
+// MockDriver 생성
+TEST(StockTS, TC1) {
+	StockBroker* app = nullptr;
+
+	EXPECT_NE(nullptr, mockDriver);
+}
+
+// ATS 생성
+TEST(StockTS, TC1) {
+	ATS* app = nullptr;
+
+	EXPECT_NE(nullptr, app);
+}
+
 int main() {
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();
