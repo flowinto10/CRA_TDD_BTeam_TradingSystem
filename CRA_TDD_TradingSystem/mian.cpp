@@ -7,10 +7,10 @@ class StockBroker;
 class MockDriver;
 
 // MockDriver 생성
-TEST(StockTS, TC1) {
+TEST(StockTS, TC0) {
 	StockBroker* app = nullptr;
 
-	EXPECT_NE(nullptr, mockDriver);
+	EXPECT_NE(nullptr, app);
 }
 
 // ATS 생성
