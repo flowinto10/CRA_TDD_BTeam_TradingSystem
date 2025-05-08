@@ -4,7 +4,6 @@
 
 using namespace testing;
 
-class ATS; // Auto Trading System
 class StockBroker;
 class MockDriver;
 
@@ -22,7 +21,6 @@ TEST(StockTS, CreateMockkDriver) {
 	EXPECT_NE(nullptr, app);
 }
 
-
 // ATS 생성
 TEST(StockTS, CreateATS) {
 	//ATS app;
@@ -31,6 +29,13 @@ TEST(StockTS, CreateATS) {
 	EXPECT_NE(nullptr, app);
 }
 
+// ATS 증권사 선택 
+TEST(StockTS, selectStockBroker) {
+	//ATS app;
+	ATS app;
+
+	EXPECT_CALL(app, selectStockBroker(_).Times(1);
+}
 
 int main() {
 	::testing::InitGoogleMock();
