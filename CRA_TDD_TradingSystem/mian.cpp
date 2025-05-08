@@ -24,7 +24,6 @@ public:
 	MockDriver* mock = new MockDriver{};
 };
 
-
 // StockBroker Driver 생성
 TEST(StockTS, CreateStockDriver) {
 	StockBroker* app = new TestStockBroker{};
@@ -63,8 +62,24 @@ TEST(StockTS, SellStock0) {
 	EXPECT_CALL(mock, sell(_, _, _))
 		.Times(1);
 
-	ATS* app = new ATS{&mock};
+	ATS* app = new ATS{ &mock };
 	EXPECT_EQ(true, app->sell("0080", 10000, 10));
+}
+
+TEST(StockTS, GetPriceTC_PriceCheck) {
+	MockDriver mockDriver;
+	
+	std::string stockCode{ "00700" };
+	int minute = 1;
+	int expectedPrice = 10000;
+
+	EXPECT_CALL(mockDriver, getPrice(stockCode, minute))
+		.Times(1)
+		.WillRepeatedly(Return(expectedPrice));
+
+	ATS* ats = new ATS{ &mockDriver };
+
+	EXPECT_EQ(expectedPrice, ats->getPrice(stockCode, minute));
 }
 
 int main() {
