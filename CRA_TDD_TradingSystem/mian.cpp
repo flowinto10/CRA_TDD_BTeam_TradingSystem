@@ -28,23 +28,20 @@ TEST(StockTS, CreateATS) {
 	EXPECT_NE(nullptr, app);
 }
 
-TEST(StockTS, GetPriceTC_MethodCheck) {
-	ATS ats;
-	
-	EXPECT_CALL(ats, getPrice(_)).Times(1);
-}
-
-
 TEST(StockTS, GetPriceTC_PriceCheck) {
 	MockDriver mockDriver;
 	
-	EXPECT_CALL(mockDriver, getPrice(_, _))
+	std::string stockCode{ "00700" };
+	int minute = 1;
+	int expectedPrice = 10000;
+
+	EXPECT_CALL(mockDriver, getPrice(stockCode, minute))
 		.Times(1)
-		.WillRepeatedly(Return(10000));
+		.WillRepeatedly(Return(expectedPrice));
 
-	ATS* ats = new ATS{ mockDriver };
+	ATS* ats = new ATS{ &mockDriver };
 
-	EXPECT_EQ(10000, ats->getPrice(0070));
+	EXPECT_EQ(expectedPrice, ats->getPrice(stockCode, minute));
 }
 
 int main() {
