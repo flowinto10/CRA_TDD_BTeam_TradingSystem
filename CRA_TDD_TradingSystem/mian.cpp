@@ -20,6 +20,13 @@ TEST(StockTS, CreateMockkDriver) {
 	EXPECT_NE(nullptr, app);
 }
 
+// StockBroker Driver 생성
+TEST(StockTS, CreateATS) {
+	ATS* app = nullptr;
+
+	EXPECT_NE(nullptr, app);
+}
+
 int main() {
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();
