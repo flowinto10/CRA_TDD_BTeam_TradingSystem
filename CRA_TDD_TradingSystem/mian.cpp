@@ -16,7 +16,7 @@ TEST(StockTS, CreateStockDriver) {
 
 // StockBroker Driver 생성
 TEST(StockTS, CreateMockkDriver) {
-	MockDriver* app = nullptr;
+	MockDriver* app;
 
 	EXPECT_NE(nullptr, app);
 }
