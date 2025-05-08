@@ -1,5 +1,6 @@
 ﻿#include "gmock/gmock.h"
 #include "stock_broker.h"
+#include "mockdriver.cpp"
 #include "ats.cpp"
 
 using namespace testing;
@@ -17,7 +18,7 @@ TEST(StockTS, CreateStockDriver) {
 
 // StockBroker Driver 생성
 TEST(StockTS, CreateMockkDriver) {
-	MockDriver* app = nullptr;
+	MockDriver* app = new MockDriver{};
 
 	EXPECT_NE(nullptr, app);
 }
