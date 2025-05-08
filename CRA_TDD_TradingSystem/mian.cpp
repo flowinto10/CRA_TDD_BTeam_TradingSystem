@@ -4,7 +4,6 @@
 
 using namespace testing;
 
-class StockBroker;
 class MockDriver;
 
 // StockBroker Driver 생성
@@ -35,6 +34,18 @@ TEST(StockTS, selectStockBroker) {
 	ATS app;
 
 	EXPECT_CALL(app, selectStockBroker(_).Times(1);
+
+	std::string expectStockBrokerName = app.getStockBroker();
+
+	EXPECT_EQ(expectStockBrokerName, 'Mock');
+}
+
+// ATS 증권사 선택 
+TEST(StockTS, getPrice) {
+	//ATS app;
+	ATS app;
+
+	EXPECT_CALL(app, getPrice(_).Times(1);
 }
 
 int main() {
